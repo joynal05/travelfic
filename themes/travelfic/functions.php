@@ -141,13 +141,11 @@ add_action( 'widgets_init', 'travelfic_widgets_init' );
  */
 function travelfic_scripts() {
 	wp_enqueue_style( 'travelfic-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'travelfic-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'default', get_template_directory_uri() .'/assets/css/default.css', array(), time(), 'all' );
 
-	wp_enqueue_script( 'travelfic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_enqueue_script( 'travelfic-navigation', get_template_directory_uri() . 'assets/js/navigation.js', array(), _S_VERSION, true );
+
 }
 add_action( 'wp_enqueue_scripts', 'travelfic_scripts' );
 
@@ -171,12 +169,6 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 
 /**
  * Load WooCommerce compatibility file.
