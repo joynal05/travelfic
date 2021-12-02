@@ -140,10 +140,13 @@ add_action( 'widgets_init', 'travelfic_widgets_init' );
  * Enqueue scripts and styles.
  */
 function travelfic_scripts() {
-	wp_enqueue_style( 'travelfic-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'default', get_template_directory_uri() .'/assets/css/default.css', array(), time(), 'all' );
+	wp_enqueue_style( 'theme', get_template_directory_uri() .'/assets/css/theme.css', array(), time(), 'all' );
+	wp_enqueue_style( 'responsive', get_template_directory_uri() .'/assets/css/responsive.css', array(), time(), 'all' );
+	wp_enqueue_style( 'travelfic-style', get_stylesheet_uri(), array(), _S_VERSION );
 
 
+	wp_enqueue_script( 'travelfic-navigation', get_template_directory_uri() . 'assets/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'travelfic-navigation', get_template_directory_uri() . 'assets/js/navigation.js', array(), _S_VERSION, true );
 
 }

@@ -364,6 +364,10 @@ html {
 
 /* Typography
 --------------------------------------------- */
+*{
+	margin: 0;
+	padding: 0;
+}
 body,
 button,
 input,
